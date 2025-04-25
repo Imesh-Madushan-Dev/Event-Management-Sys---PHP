@@ -14,9 +14,9 @@ header('Content-Type: application/json');
 $response = [
     'loggedIn' => isLoggedIn(),
     'isAdmin' => isAdminLoggedIn(),
-    'userName' => isLoggedIn() ? $_SESSION['user_name'] : null
+    'userName' => isLoggedIn() ? $_SESSION['name'] : null
 ];
 
 // Return response as JSON
 echo json_encode($response);
-?> 
+?>

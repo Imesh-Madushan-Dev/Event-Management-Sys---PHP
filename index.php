@@ -1,6 +1,11 @@
 <?php
 // Include any necessary PHP functions or configurations
 require_once 'includes/functions.php';
+
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -388,7 +393,7 @@ require_once 'includes/functions.php';
                     <p class="hero-text">Your ultimate platform for discovering and participating in events across all
                         NIBM branches. Connect with peers, expand your horizons, and make unforgettable memories during
                         your university journey.</p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3" id="hero-buttons">
                         <a href="/nibm-unity/events/list_events.php" class="btn btn-light btn-lg btn-hero">
                             <i class="fas fa-calendar-alt me-2"></i>Explore Events
                         </a>
@@ -396,6 +401,25 @@ require_once 'includes/functions.php';
                             class="btn btn-outline-light btn-lg btn-hero">
                             <i class="fas fa-user-plus me-2"></i>Join the Community
                         </a>
+                    </div>
+                    <!-- User info display container -->
+                    <div id="user-info" class="mt-3 d-none">
+                        <div class="bg-white bg-opacity-25 rounded p-3 backdrop-blur">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-user-circle fa-3x text-white me-3"></i>
+                                <div>
+                                    <h5 class="mb-1 text-white">Welcome, <span id="welcome-username">User</span>!</h5>
+                                    <div class="d-flex gap-2">
+                                        <a href="/nibm-unity/user/profile.php" class="btn btn-sm btn-light">
+                                            <i class="fas fa-user-edit me-1"></i>My Profile
+                                        </a>
+                                        <a href="/nibm-unity/user/login.php?logout=1" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-sign-out-alt me-1"></i>Logout
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -597,7 +621,7 @@ require_once 'includes/functions.php';
                 animateFadeIn();
             });
 
-            // Check login status for the CTA section
+            // Check login status for the CTA section and hero section
             checkLoginStatus();
         });
 
@@ -611,6 +635,10 @@ require_once 'includes/functions.php';
                     if (response.loggedIn) {
                         // User is logged in
                         $("#joinButton").hide();
+                        
+                        // Show user info section
+                        $("#user-info").removeClass('d-none');
+                        $("#welcome-username").text(response.userName);
 
                         // Update CTA section
                         $("#cta-buttons").html(`
