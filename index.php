@@ -402,30 +402,12 @@ if (session_status() === PHP_SESSION_NONE) {
                             <i class="fas fa-user-plus me-2"></i>Join the Community
                         </a>
                     </div>
-                    <!-- User info display container -->
-                    <div id="user-info" class="mt-3 d-none">
-                        <div class="bg-white bg-opacity-25 rounded p-3 backdrop-blur">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-user-circle fa-3x text-white me-3"></i>
-                                <div>
-                                    <h5 class="mb-1 text-white">Welcome, <span id="welcome-username">User</span>!</h5>
-                                    <div class="d-flex gap-2">
-                                        <a href="/nibm-unity/user/profile.php" class="btn btn-sm btn-light">
-                                            <i class="fas fa-user-edit me-1"></i>My Profile
-                                        </a>
-                                        <a href="/nibm-unity/user/login.php?logout=1" class="btn btn-sm btn-danger">
-                                            <i class="fas fa-sign-out-alt me-1"></i>Logout
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
 
                 </div>
                 <div class="col-lg-6 d-none d-lg-block position-relative fade-in" data-delay="300">
                     <div class="hero-image floating">
-                        <img src="https://source.unsplash.com/random/800x600/?university,students" alt="University Life"
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/NIBM_GALLE.JPG" alt="University Life"
                             class="img-fluid rounded-4 shadow-lg">
                         <div class="hero-badge">New Events!</div>
                     </div>
@@ -606,7 +588,11 @@ if (session_status() === PHP_SESSION_NONE) {
         $(document).ready(function () {
             // Load header and footer using AJAX with absolute paths
             $("#header-container").load("/nibm-unity/includes/header.html", function () {
-                // The login status check is now handled inside header.html
+                // Initialize Bootstrap dropdowns after header is loaded
+                var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+                var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                    return new bootstrap.Dropdown(dropdownToggleEl)
+                });
             });
 
             $("#footer-container").load("/nibm-unity/includes/footer.html");

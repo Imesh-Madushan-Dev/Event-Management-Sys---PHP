@@ -422,25 +422,37 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
                                     <i class="fas fa-users me-2"></i>Manage Users
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="<?php echo getPath('user/login.php?logout=1'); ?>">
+                                <li><a class="dropdown-item" href="<?php echo getPath('user/logout.php'); ?>">
                                     <i class="fas fa-sign-out-alt me-2"></i>Logout
                                 </a></li>
                             </ul>
                         </li>
+                        <!-- Added Sign Out Button -->
+                        <li class="nav-item ms-2">
+                            <a class="btn btn-danger btn-sm" href="<?php echo getPath('user/logout.php'); ?>">
+                                <i class="fas fa-sign-out-alt me-1"></i>Sign Out
+                            </a>
+                        </li>
                     <?php elseif (isLoggedIn()): ?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="nav-link dropdown-toggle btn btn-link" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user me-1"></i>My Account
-                            </a>
+                            </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="<?php echo getPath('user/profile.php'); ?>">
                                     <i class="fas fa-user-circle me-2"></i>My Profile
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="<?php echo getPath('user/login.php?logout=1'); ?>">
+                                <li><a class="dropdown-item" href="<?php echo getPath('user/logout.php'); ?>">
                                     <i class="fas fa-sign-out-alt me-2"></i>Logout
                                 </a></li>
                             </ul>
+                        </li>
+                        <!-- Added Sign Out Button -->
+                        <li class="nav-item ms-2">
+                            <a class="btn btn-danger btn-sm" href="<?php echo getPath('user/logout.php'); ?>">
+                                <i class="fas fa-sign-out-alt me-1"></i>Sign Out
+                            </a>
                         </li>
                     <?php else: ?>
                         <div class="auth-buttons d-flex">
@@ -480,8 +492,24 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- QR Code Generator Script -->
+    <!-- Initialize Bootstrap Components -->
     <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize all dropdowns
+        var dropdownElements = document.querySelectorAll('.dropdown-toggle');
+        dropdownElements.forEach(function(element) {
+            new bootstrap.Dropdown(element);
+        });
+        
+        // Enable all tooltips if any
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+    
+    // QR Code Generator Script
     function generateQRCode(elementId, data) {
         const element = document.getElementById(elementId);
         if (!element) return;
@@ -501,4 +529,4 @@ if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     }
     </script>
 </body>
-</html> 
+</html>

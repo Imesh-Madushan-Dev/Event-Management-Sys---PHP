@@ -427,4 +427,17 @@ while ($row = mysqli_fetch_assoc($branches_result)) {
 }
 </style>
 
-<?php require_once '../includes/footer.php'; ?> 
+<script>
+// Initialize dropdowns when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all dropdown toggle elements
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    
+    // Initialize Bootstrap dropdowns for each element
+    var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+});
+</script>
+
+<?php require_once '../includes/footer.php'; ?>
