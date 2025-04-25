@@ -1,0 +1,98 @@
+<!-- Footer -->
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- About Section -->
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-4">About NIBM Unity</h5>
+                <p class="text-muted mb-4">NIBM Unity is your central platform for discovering and participating in
+                    events across all NIBM branches. Connect with students, attend exciting events, and make the most of
+                    your university experience.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2">
+                <h5 class="fw-bold mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="/nibm-unity/index.html" class="text-muted text-decoration-none">Home</a>
+                    </li>
+                    <li class="mb-2"><a href="/nibm-unity/events/list_events.php"
+                            class="text-muted text-decoration-none">Events</a>
+                    </li>
+                    <li class="mb-2"><a href="/nibm-unity/about.php" class="text-muted text-decoration-none">About</a>
+                    </li>
+                    <li class="mb-2"><a href="/nibm-unity/contact.php"
+                            class="text-muted text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- NIBM Branches -->
+            <div class="col-lg-3">
+                <h5 class="fw-bold mb-4">NIBM Branches</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="/nibm-unity/events/list_events.php?branch=colombo"
+                            class="text-muted text-decoration-none">
+                            <i class="fas fa-map-marker-alt me-2"></i>Colombo
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/nibm-unity/events/list_events.php?branch=kandy"
+                            class="text-muted text-decoration-none">
+                            <i class="fas fa-map-marker-alt me-2"></i>Kandy
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/nibm-unity/events/list_events.php?branch=kurunegala"
+                            class="text-muted text-decoration-none">
+                            <i class="fas fa-map-marker-alt me-2"></i>Kurunegala
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-3">
+                <h5 class="fw-bold mb-4">Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-envelope me-2"></i>
+                        <a href="mailto:info@nibmunity.com"
+                            class="text-muted text-decoration-none">info@nibmunity.com</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        <a href="tel:+94112345678" class="text-muted text-decoration-none">+94 11 234 5678</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        <span class="text-muted">123 University Road, Colombo 03</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <hr class="my-4 border-secondary">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="text-muted mb-0">&copy; <span id="current-year"></span> NIBM Unity. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="/nibm-unity/privacy.php" class="text-muted text-decoration-none me-3">Privacy Policy</a>
+                <a href="/nibm-unity/terms.php" class="text-muted text-decoration-none">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
